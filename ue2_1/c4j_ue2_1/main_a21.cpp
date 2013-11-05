@@ -25,7 +25,7 @@ void doUnitTests_RationalNumber() {
         assert(a.num() == 0);
         cout << " passed." << endl;
     }
-#if 0
+
     {
         // test non-default constructors and both accessors num() and denom()
         cout << "- more constructors..." << flush;
@@ -78,7 +78,7 @@ void doUnitTests_RationalNumber() {
         assert(!(a < c));
         cout << " passed." << endl;
     }
-#endif
+
     cout << "Unit tests for class RationalNumber finished!" << endl;
 
 }
