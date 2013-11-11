@@ -16,9 +16,11 @@ class RationalNumber {
 
 public:
     RationalNumber(int numerator=0, int denomerator=1)
-        : m_numerator(numerator / euklid(numerator, denomerator)), m_denomerator(denomerator / euklid(numerator, denomerator))
+        : m_numerator(numerator), m_denomerator(denomerator)
     {
-
+        int gcd = euklid(m_numerator, m_denomerator);
+        this->m_numerator /= gcd;
+        this->m_denomerator /= gcd;
     }
 
     int num() const;
