@@ -2,10 +2,11 @@
 #define MAP_H
 
 #include "rationalnumber.h"
+#include "keyvaluenode.h"
+
+using namespace rn::internal;
 
 namespace rn {
-
-    class KeyValueNode;
 
     class Map
     {
@@ -17,10 +18,11 @@ namespace rn {
             Map(const Map& rhs);
             ~Map();
 
+            Map& operator=(const Map& rhs);
             bool contains(const key_type& key) const;
 
-            Map& operator=(const Map& rhs) const;
-            mapped_type& operator[](const key_type& other) const;
+            const mapped_type& operator[](const key_type& other) const;
+            mapped_type& operator[](const key_type& other);
 
 
         private:

@@ -9,15 +9,18 @@
 #include <iostream>
 #include "assert.h"
 #include "rationalnumber.h"
-#include "Map.h"
+#include "map.h"
 
 using namespace std;
 using namespace rn;
 
 int main()
 {
-    cout << "main wird begonnen\n" << endl;
-    Map m();
+    cout << "main wird begonnen." << endl;
+    Map m;
+    Map m2;
+    m2 = m;
+    cout << "main wird beendet." << endl;
     return 0;
 }
 

@@ -9,5 +9,6 @@ SOURCES += main_a22.cpp \
 
 HEADERS += \
     rationalnumber.h \
-    Map.h
+    keyvaluenode.h \
+    map.h
 

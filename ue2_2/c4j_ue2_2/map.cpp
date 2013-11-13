@@ -1,4 +1,4 @@
-#include "Map.h"
+#include "map.h"
 #include "rationalnumber.h"
 #include <cstring>
 #include <iostream>
@@ -10,13 +10,14 @@ namespace rn {
     Map::Map()
         : root(0)
     {
-        cout << "Creating new map" << endl;
+        cout << "Invoking default constructor." << endl;
     }
 
     Map::Map(const Map& rhs)
         : root(0)
     {
-       memcpy(root, rhs.root, sizeof(rhs));
+       *this = rhs;
+       cout << "Invoking copy constructor." << endl;
     }
 
     Map::~Map()
@@ -24,46 +25,22 @@ namespace rn {
         cout << "Destroying map" << endl;
     }
 
-    bool Map::contains(const Map::key_type& key) const {
-        return false;
+    Map& Map::operator=(const Map& rhs) {
+        cout << "Invoking =" << endl;
+        memcpy(root, rhs.root, sizeof(rhs));
+        return *this;
     }
 
-    class KeyValueNode {
-        public:
-            typedef RationalNumber key_type;
-            typedef int mapped_type;
+    bool Map::contains(const Map::key_type& key) const {
+        return root->find(key);
+    }
 
-            KeyValueNode(const key_type& key, const mapped_type& value)
-                : key(key), value(value)
-            {
-            }
+    const Map::mapped_type& Map::operator[](const Map::key_type& other) const {
 
-            ~KeyValueNode()
-            {
+    }
 
-            }
+    Map::mapped_type& Map::operator[](const Map::key_type& other) {
 
-            KeyValueNode* find(const key_type& key)
-            {
-                return 0;
-            }
-
-            void insert(const key_type& key, const mapped_type& type)
-            {
-
-            }
-
-            KeyValueNode* clone()
-            {
-
-            }
-
-        private:
-            key_type key;
-            mapped_type value;
-            KeyValueNode* left;
-            KeyValueNode* right;
-
-    };
+    }
 
 }
