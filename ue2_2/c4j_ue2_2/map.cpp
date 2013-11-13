@@ -46,7 +46,19 @@ namespace rn {
 
     bool Map::contains(const Map::key_type& key) const {
         cout << "Invoking contains" << endl;
-        return root->find(key);
+        if(root == 0) {
+            return false;
+        } else {
+            return root->find(key);
+        }
+    }
+
+    Map::mapped_type& Map::operator[](const key_type& other) {
+        if(root == 0) {
+            root = new KeyValueNode(other, 2);
+        }
+
+        return root->find(other)->value();
     }
 
 

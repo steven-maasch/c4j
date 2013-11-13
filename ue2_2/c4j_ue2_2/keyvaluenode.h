@@ -20,12 +20,14 @@ namespace internal {
             void insert(const key_type& key, const mapped_type& type);
             KeyValueNode* clone();
 
+            mapped_type& value() { return m_value; }
+
 
         private:
-            key_type key;
-            mapped_type value;
-            KeyValueNode* left;
-            KeyValueNode* right;
+            key_type m_key;
+            mapped_type m_value;
+            KeyValueNode* m_left;
+            KeyValueNode* m_right;
 
     };
 

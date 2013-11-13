@@ -6,7 +6,7 @@ namespace rn {
 namespace internal {
 
             KeyValueNode::KeyValueNode(const key_type& key, const mapped_type& value)
-                : key(key), value(value)
+                : m_key(key), m_value(value)
             {
             }
 
@@ -17,6 +17,9 @@ namespace internal {
 
             KeyValueNode* KeyValueNode::find(const key_type& key) {
                 std::cout << "find" << std::endl;
+                if(this->m_key == key) {
+                    return this;
+                }
                 return 0;
             }
 

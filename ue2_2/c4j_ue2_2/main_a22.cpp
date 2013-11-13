@@ -22,6 +22,10 @@ int main()
     m2 = m;
     RationalNumber n;
     cout << m.contains(n) << endl;
+    cout << m.contains(n) << endl;
+    cout << m[n] << endl;
+    m[n] = 4;
+    cout << m[n] << endl;
     cout << "main wird beendet." << endl;
     return 0;
 }
