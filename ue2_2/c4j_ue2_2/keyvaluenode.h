@@ -1,6 +1,8 @@
 #ifndef KEYVALUENODE_H
 #define KEYVALUENODE_H
 
+#include "rationalnumber.h"
+
 namespace rn {
 
 namespace internal {
@@ -10,35 +12,13 @@ namespace internal {
             typedef RationalNumber key_type;
             typedef int mapped_type;
 
-            KeyValueNode(const key_type& key, const mapped_type& value)
-                : key(key), value(value)
-            {
-            }
+            KeyValueNode(const key_type& key, const mapped_type& value);
+            ~KeyValueNode();
 
-            ~KeyValueNode()
-            {
 
-            }
-
-            KeyValueNode* find(const key_type& key) {
-                if(key == this->getKey()) {
-                    return this;
-                } else if(key < this->getKey()) {
-                    return this->find(this->getLeft()->getKey());
-                } else if(this->getKey() < key) {
-                    return this->find(this->getRight()->getKey());
-                } else {
-                    return 0;
-                }
-            }
-
-            void insert(const key_type& key, const mapped_type& type) {
-
-            }
-
-            KeyValueNode* clone() {
-
-            }
+            KeyValueNode* find(const key_type& key);
+            void insert(const key_type& key, const mapped_type& type);
+            KeyValueNode* clone();
 
             key_type getKey() const { return key; }
             mapped_type getValue() const { return value; }

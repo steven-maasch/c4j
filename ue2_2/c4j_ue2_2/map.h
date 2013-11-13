@@ -24,7 +24,6 @@ namespace rn {
             const mapped_type& operator[](const key_type& other) const;
             mapped_type& operator[](const key_type& other);
 
-
         private:
             KeyValueNode* root;
     };

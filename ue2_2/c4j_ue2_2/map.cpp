@@ -2,8 +2,10 @@
 #include "rationalnumber.h"
 #include <cstring>
 #include <iostream>
+#include "keyvaluenode.h"
 
 using namespace std;
+using namespace rn::internal;
 
 namespace rn {
 
@@ -22,25 +24,26 @@ namespace rn {
 
     Map::~Map()
     {
+        delete root;
         cout << "Destroying map" << endl;
     }
 
     Map& Map::operator=(const Map& rhs) {
+
+        if(root) {
+            delete root;
+        }
+
+        root = rhs.root;
+
         cout << "Invoking =" << endl;
-        memcpy(root, rhs.root, sizeof(rhs));
         return *this;
     }
 
     bool Map::contains(const Map::key_type& key) const {
+        cout << "Invoking contains" << endl;
         return root->find(key);
     }
 
-    const Map::mapped_type& Map::operator[](const Map::key_type& other) const {
-
-    }
-
-    Map::mapped_type& Map::operator[](const Map::key_type& other) {
-
-    }
 
 }

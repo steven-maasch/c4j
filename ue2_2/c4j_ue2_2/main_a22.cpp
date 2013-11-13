@@ -20,6 +20,8 @@ int main()
     Map m;
     Map m2;
     m2 = m;
+    RationalNumber n;
+    cout << m.contains(n) << endl;
     cout << "main wird beendet." << endl;
     return 0;
 }

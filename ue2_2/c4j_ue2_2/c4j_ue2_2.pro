@@ -5,7 +5,8 @@ CONFIG -= qt
 
 SOURCES += main_a22.cpp \
     rationalnumber.cpp \
-    map.cpp
+    map.cpp \
+    keyvaluenode.cpp
 
 HEADERS += \
     rationalnumber.h \
