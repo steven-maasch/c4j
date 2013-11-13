@@ -17,9 +17,6 @@ namespace internal {
 
             KeyValueNode* KeyValueNode::find(const key_type& key) {
                 std::cout << "find" << std::endl;
-                if(this->key == key) {
-                    std::cout << "match" << std::endl;
-                }
                 return 0;
             }
 

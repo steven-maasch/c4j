@@ -30,13 +30,17 @@ namespace rn {
 
     Map& Map::operator=(const Map& rhs) {
 
+        cout << "Invoking =" << endl;
+
+        if (this == &rhs) {
+            return *this;
+        }
+
         if(root) {
             delete root;
         }
 
         root = rhs.root;
-
-        cout << "Invoking =" << endl;
         return *this;
     }
 
