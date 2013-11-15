@@ -12,14 +12,14 @@ namespace rn {
     Map::Map()
         : root(0)
     {
-        cout << "Invoking default constructor." << endl;
+        cout << "Invoking map default constructor." << endl;
     }
 
     Map::Map(const Map& rhs)
         : root(0)
     {
        *this = rhs;
-       cout << "Invoking copy constructor." << endl;
+       cout << "Invoking map copy constructor." << endl;
     }
 
     Map::~Map()
@@ -30,7 +30,6 @@ namespace rn {
 
     Map& Map::operator=(const Map& rhs) {
 
-        cout << "Invoking =" << endl;
 
         if (this == &rhs) {
             return *this;
@@ -40,26 +39,35 @@ namespace rn {
             delete root;
         }
 
-        root = rhs.root;
+        root = rhs.root->clone();
+
         return *this;
     }
 
     bool Map::contains(const Map::key_type& key) const {
-        cout << "Invoking contains" << endl;
+
         if(root == 0) {
             return false;
         } else {
-            return root->find(key);
+            if(root->find(key)) {
+                return true;
+            } else {
+                return false;
+            }
         }
     }
 
     Map::mapped_type& Map::operator[](const key_type& other) {
-        if(root == 0) {
-            root = new KeyValueNode(other, 2);
-        }
 
+        cout << "operator" << endl;
+        if(root == 0) {
+            root = new KeyValueNode(other, 0);
+            return root->find(other)->value();
+        } else {
+            if(!contains(other)) {
+                 root->insert(other, 0);
+            }
+        }
         return root->find(other)->value();
     }
-
-
 }

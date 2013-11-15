@@ -18,7 +18,7 @@ namespace internal {
 
             KeyValueNode* find(const key_type& key);
             void insert(const key_type& key, const mapped_type& type);
-            KeyValueNode* clone();
+            KeyValueNode* clone() const;
 
             mapped_type& value() { return m_value; }
 

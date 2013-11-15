@@ -8,8 +8,7 @@ using namespace rn::internal;
 
 namespace rn {
 
-    class Map
-    {
+    class Map {
         public:
             typedef RationalNumber key_type;
             typedef int mapped_type;
@@ -19,10 +18,8 @@ namespace rn {
             ~Map();
 
             Map& operator=(const Map& rhs);
-            bool contains(const key_type& key) const;
-
-            const mapped_type& operator[](const key_type& other) const;
             mapped_type& operator[](const key_type& other);
+            bool contains(const key_type& key) const;
 
         private:
             KeyValueNode* root;
