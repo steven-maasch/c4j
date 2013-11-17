@@ -59,7 +59,6 @@ namespace rn {
 
     Map::mapped_type& Map::operator[](const key_type& other) {
 
-        cout << "operator" << endl;
         if(root == 0) {
             root = new KeyValueNode(other, 0);
             return root->find(other)->value();
