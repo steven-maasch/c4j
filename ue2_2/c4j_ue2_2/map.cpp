@@ -24,7 +24,9 @@ namespace rn {
 
     Map::~Map()
     {
-        delete root;
+        if(root) {
+            delete root;
+        }
         cout << "Destroying map" << endl;
     }
 
@@ -57,7 +59,7 @@ namespace rn {
         }
     }
 
-    Map::mapped_type& Map::operator[](const key_type& other) {
+    Map::mapped_type& Map::operator [](const key_type& other) {
 
         if(root == 0) {
             root = new KeyValueNode(other, 0);
