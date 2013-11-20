@@ -11,5 +11,6 @@ SOURCES += main_a22.cpp \
 HEADERS += \
     rationalnumber.h \
     keyvaluenode.h \
-    map.h
+    map.h \
+    _map.h
 
