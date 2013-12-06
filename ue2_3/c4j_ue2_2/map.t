@@ -25,8 +25,8 @@ class Map {
                 KeyValueNode* clone() const;
                 mapped_type& value() { return m_pair.second; }
                 value_t& pair() { return m_pair; }
-                KeyValueNode* const left() { return m_left; }
-                KeyValueNode* const right() { return m_right; }
+                KeyValueNode* left() { return m_left; }
+                KeyValueNode* right() { return m_right; }
             private:
                 value_t m_pair;
                 KeyValueNode* m_left;
@@ -38,9 +38,10 @@ class Map {
     public:
         class Iterator {
             public:
-                Iterator(Map<key_type, mapped_type>* parent, KeyValueNode* node=0)
+                Iterator(Map<KeyT, T>* parent, KeyValueNode* node=0)
                     : m_parent(parent), m_node(node)
                 {
+
                 }
 
                 bool operator==(const Iterator& rhs) const {
@@ -120,8 +121,9 @@ class Map {
                 }
 
             private:
+                Map<KeyT, T>* m_parent;
                 KeyValueNode* m_node;
-                Map<key_type, mapped_type>* m_parent;
+
 
         };
 
@@ -171,11 +173,11 @@ Map<KeyT, T>& Map<KeyT, T>::operator=(const Map<KeyT, T>& rhs) {
 template<class KeyT, class T>
 T& Map<KeyT, T>::operator[](const KeyT& other) {
     if(root == 0) {
-        root = new KeyValueNode(other, 0); // TODO
+        root = new KeyValueNode(other, T()); // TODO
         return root->find(other)->value();
     } else {
         if(!contains(other)) {
-            root->insert(other, 0);
+            root->insert(other, T());
         }
     }
     return root->find(other)->value();
