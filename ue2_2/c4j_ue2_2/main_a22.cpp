@@ -123,6 +123,41 @@ int main()
 
     }
 
+    /*
+     *  Testing template with int, string
+     */
+
+    {
+
+        int ks1 = 1;
+        int ks2 = 2;
+        string s1 = "foo";
+        string s2 = "bar";
+
+        Map<int, string> m1, m2;
+
+        // Checking contains
+
+        assert(!m1.contains(ks1));
+        assert(!m2.contains(ks2));
+
+        // Checking [] operator.
+
+        m1[ks1];
+        assert(m1.contains(ks1));
+        assert(!m2.contains(ks1));
+        assert(m1[ks1] == "");
+        m1[ks1] = s1;
+        assert(m1[ks1] == s1);
+
+        m1[ks2] = s2;
+        assert(m1.contains(ks2));
+        assert(m1[ks2] == "bar");
+
+
+
+    }
+
     cout << "main wird beendet." << endl;
     return 0;
 }

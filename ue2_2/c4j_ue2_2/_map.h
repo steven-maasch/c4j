@@ -74,11 +74,11 @@ Map<KeyT, T>& Map<KeyT, T>::operator=(const Map<KeyT, T>& rhs) {
 template<class KeyT, class T>
 T& Map<KeyT, T>::operator[](const KeyT& other) {
     if(root == 0) {
-        root = new KeyValueNode(other, 0);
+        root = new KeyValueNode(other, T());
         return root->find(other)->value();
     } else {
         if(!contains(other)) {
-            root->insert(other, 0);
+            root->insert(other, T());
         }
     }
     return root->find(other)->value();

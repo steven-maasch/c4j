@@ -62,11 +62,11 @@ namespace rn {
     Map::mapped_type& Map::operator [](const key_type& other) {
 
         if(root == 0) {
-            root = new KeyValueNode(other, 0);
+            root = new KeyValueNode(other, mapped_type());
             return root->find(other)->value();
         } else {
             if(!contains(other)) {
-                 root->insert(other, 0);
+                root->insert(other, mapped_type());
             }
         }
         return root->find(other)->value();
