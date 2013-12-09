@@ -95,12 +95,13 @@ class Map {
                         return *this; // Richtig
                     }
 
+                    KeyValueNode* oldValue = m_node;
                     if(m_node->right() != 0) {
                         m_node = m_node->right();
                         while(m_node->left()) {
                             m_node = m_node->left();
                         }
-                        return *this;
+                        return Iterator(m_parent, oldValue);
                     }
 
                     KeyValueNode* next = 0;

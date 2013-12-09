@@ -47,6 +47,11 @@ int main()
         cout << i1->first << " => " << i1->second << endl;
     }
 
+    Map<int, string>::iterator i2 = m1.begin();
+    assert(i2->first == -4);
+    assert(i2++->first == -4);
+    assert(i2->first == 1);
+
     cout << "main wird beendet." << endl;
     return 0;
 }
